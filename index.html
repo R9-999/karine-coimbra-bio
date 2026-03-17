@@ -61,27 +61,16 @@
     /* HEADER */
     .header-section {
       text-align: center;
-      padding: 40px 20px 30px;
+      padding: 50px 20px 30px;
       position: relative;
       background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
-    }
-
-    /* LOGO PRINCIPAL NO TOPO */
-    .logo-principal {
-      margin-bottom: 25px;
-    }
-
-    .logo-principal-img {
-      width: 200px;
-      height: auto;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     }
 
     /* FOTO */
     .foto-container {
       position: relative;
       display: inline-block;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .foto {
@@ -113,15 +102,39 @@
       50% { transform: scale(1.03); opacity: 0.4; }
     }
 
-    /* LOGO ABAIXO DA FOTO */
+    /* LOGO ABAIXO DA FOTO - ESTILIZADA COM FUNDO DO SITE */
     .logo-abaixo-foto {
-      margin: 15px 0;
+      margin: 20px 0 15px;
+      padding: 15px 25px;
+      /* Fundo igual ao do site (gradiente roxo) */
+      background: linear-gradient(135deg, rgba(74, 74, 106, 0.6), rgba(107, 91, 115, 0.6));
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(200, 162, 200, 0.3);
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
     .logo-abaixo-img {
-      width: 220px;
+      width: 160px;
       height: auto;
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+      display: block;
+      /* Remove qualquer fundo branco da imagem e aplica blend */
+      mix-blend-mode: multiply;
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    /* Caso a imagem tenha fundo transparente, melhora a visibilidade */
+    .logo-abaixo-foto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit;
+      border-radius: inherit;
+      z-index: -1;
     }
 
     .subtitle {
@@ -713,7 +726,6 @@
       box-shadow: 0 10px 25px rgba(156, 39, 176, 0.3);
     }
 
-    /* CORES ESPECÍFICAS DOS ÍCONES NO HOVER */
     .social-icon.instagram:hover {
       background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
       border-color: transparent;
@@ -754,8 +766,11 @@
 
     /* RESPONSIVO */
     @media (max-width: 400px) {
+      .logo-abaixo-foto {
+        padding: 12px 20px;
+      }
       .logo-abaixo-img {
-        width: 180px;
+        width: 140px;
       }
       .whatsapp-big {
         font-size: 13px;
@@ -772,19 +787,15 @@
 
   <div class="container">
 
-    <!-- HEADER -->
+    <!-- HEADER - APENAS FOTO E LOGO ABAIXO -->
     <div class="header-section">
-      <!-- LOGO PRINCIPAL NO TOPO -->
-      <div class="logo-principal">
-        <img src="file_00000000ac3c71f5bbf460bb12cc9934.png" alt="Karine Coimbra Psicóloga Infantil" class="logo-principal-img" />
-      </div>
       
       <div class="foto-container">
         <div class="foto-ring"></div>
         <img src="psicologa1.jpg" alt="Foto da Psicóloga Karine Coimbra" class="foto" />
       </div>
       
-      <!-- LOGO ABAIXO DA FOTO -->
+      <!-- LOGO ABAIXO DA FOTO - FUNDO IGUAL AO DO SITE -->
       <div class="logo-abaixo-foto">
         <img src="file_00000000ac3c71f5bbf460bb12cc9934.png" alt="Karine Coimbra" class="logo-abaixo-img" />
       </div>
@@ -990,7 +1001,7 @@
       <!-- AGENDAMENTO -->
       <div class="contact-highlight">
         <h3>Agendamento</h3>
-        <p>Entre em contato pelo WhatsApp e agende sua consulta</p>
+        <p>Entre em contato pelo WhatsApp e agende a sua consulta</p>
         <a href="https://wa.me/5593992022728" class="whatsapp-big" target="_blank">
           💬 Falar no WhatsApp
         </a>
