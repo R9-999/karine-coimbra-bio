@@ -106,47 +106,116 @@
     }
 
     /* LOGO ABAIXO DA FOTO - CORRIGIDO */
-    .logo-abaixo-foto {
-      margin: 20px 0 15px;
-      /* Fundo igual ao do site */
-      background: linear-gradient(135deg, var(--roxo-escuro), var(--roxo-medio));
-      padding: 20px 30px;
-      border-radius: 15px;
-      border: 2px solid rgba(200, 162, 200, 0.3);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      display: block; /* Garante bloco */
-      width: fit-content; /* Ajusta ao conteúdo */
-    }
+  /* ============================================
+   ESTILIZAÇÃO DA LOGO - KARINE COIMBRA
+   ============================================ */
 
-    .logo-abaixo-img {
-      width: 150px;
-      height: auto;
-      display: block;
-      /* REMOVE FUNDO BRANCO: combinação de técnicas */
-      mix-blend-mode: screen; /* Muda de multiply para screen */
-      filter: contrast(1.2) brightness(1.1);
-      /* Se a imagem tem fundo transparente, isso ajuda */
-      background-color: transparent;
-    }
+/* Container principal da logo */
+.logo-abaixo-foto {
+  margin: 25px 0 20px;
+  padding: 25px 35px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 2px solid rgba(200, 162, 200, 0.25);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    /* ALTERNATIVA: Se o fundo persistir branco, usar máscara */
-    .logo-wrapper {
-      position: relative;
-      display: inline-block;
-    }
+/* Efeito hover sutil no container */
+.logo-abaixo-foto:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 40px rgba(156, 39, 176, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(156, 39, 176, 0.4);
+}
 
-    .logo-wrapper::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, var(--roxo-escuro), var(--roxo-medio));
-      mix-blend-mode: color; /* Remove cor branca */
-      pointer-events: none;
-      opacity: 0.9;
-    }
+/* Brilho animado no fundo */
+.logo-abaixo-foto::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(156, 39, 176, 0.15) 0%,
+    transparent 70%
+  );
+  animation: logoGlow 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes logoGlow {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Wrapper da imagem */
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+/* Imagem da logo */
+.logo-abaixo-img {
+  width: 160px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s ease;
+}
+
+/* Efeito hover na imagem */
+.logo-abaixo-foto:hover .logo-abaixo-img {
+  transform: scale(1.03);
+  filter: drop-shadow(0 6px 20px rgba(156, 39, 176, 0.4));
+}
+
+/* Animação de entrada */
+@keyframes logoFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logo-abaixo-foto {
+  animation: logoFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Responsivo */
+@media (max-width: 400px) {
+  .logo-abaixo-foto {
+    padding: 20px 28px;
+    margin: 20px 0 15px;
+  }
+  
+  .logo-abaixo-img {
+    width: 140px;
+  }
+}
+
+@media (max-width: 350px) {
+  .logo-abaixo-foto {
+    padding: 18px 24px;
+  }
+  
+  .logo-abaixo-img {
+    width: 120px;
+  }
+  }
 
     .subtitle {
       font-family: 'Montserrat', sans-serif;
