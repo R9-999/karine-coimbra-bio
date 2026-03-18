@@ -44,7 +44,7 @@
       --icon-localizacao: #ff9800;
       --icon-processo: #607d8b;
       --icon-faq: #ffc107;
-    }
+    } 
 
     * {
       margin: 0;
@@ -68,20 +68,21 @@
 
     /* HEADER */
     .header-section {
-      text-align: center;
-      padding: 50px 20px 30px;
-      position: relative;
-      background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+  text-align: center;
+  padding: 25px 20px 10px; /* DIMINUI MUITO O ESPAÇO */
+  position: relative;
+  background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* controla o espaço entre foto, logo e infos */
     }
 
     /* FOTO */
     .foto-container {
       position: relative;
       display: inline-block;
-      margin-bottom: 3px;
+      margin-bottom: 0;
     }
 
     .foto {
@@ -115,7 +116,7 @@
 
     /* LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA */
     .logo-abaixo-foto {
-  margin: 5px 0; /* diminui bastante o espaço */
+  margin: 0; /* diminui bastante o espaço */
   padding: 0;
   background: transparent;
   border: none;
