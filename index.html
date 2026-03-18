@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
   <!-- FAVICON -->
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-
+  
   <!-- META -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Karine Coimbra - Psicóloga Infantil especializada em ABA, TDAH e Autismo. Atendimento acolhedor em Santarém-PA. Agende sua consulta.">
-
+  
   <!-- FONTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +19,9 @@
   
   <!-- FONT AWESOME PARA ÍCONES PROFISSIONAIS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  
   <title>Karine Coimbra | Psicóloga Infantil - ABA & TDAH | Santarém</title>
-
+  
   <style>
     :root {
       --roxo-escuro: #4a4a6a;
@@ -36,6 +35,15 @@
       --creme: #faf8f5;
       --shadow: 0 25px 50px -12px rgba(74, 74, 106, 0.25);
       --shadow-sm: 0 4px 6px -1px rgba(74, 74, 106, 0.1);
+      
+      /* Cores dos ícones por seção */
+      --icon-sobre: #9c27b0;
+      --icon-atendimentos: #4caf50;
+      --icon-trabalho: #e91e63;
+      --icon-equipe: #2196f3;
+      --icon-localizacao: #ff9800;
+      --icon-processo: #607d8b;
+      --icon-faq: #ffc107;
     }
 
     * {
@@ -58,15 +66,15 @@
       padding: 0;
     }
 
-    /* HEADER - CORRIGIDO: display flex em coluna */
+    /* HEADER */
     .header-section {
       text-align: center;
       padding: 50px 20px 30px;
       position: relative;
       background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
-      display: flex; /* ADICIONADO */
-      flex-direction: column; /* ADICIONADO: força vertical */
-      align-items: center; /* ADICIONADO: centraliza tudo */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     /* FOTO */
@@ -105,117 +113,65 @@
       50% { transform: scale(1.03); opacity: 0.4; }
     }
 
-    /* LOGO ABAIXO DA FOTO - CORRIGIDO */
-  /* ============================================
-   ESTILIZAÇÃO DA LOGO - KARINE COIMBRA
-   ============================================ */
+    /* LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA */
+    .logo-abaixo-foto {
+      margin: 15px 0 10px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-/* Container principal da logo */
-.logo-abaixo-foto {
-  margin: 25px 0 20px;
-  padding: 25px 35px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  border: 2px solid rgba(200, 162, 200, 0.25);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
 
-/* Efeito hover sutil no container */
-.logo-abaixo-foto:hover {
-  transform: translateY(-3px);
-  box-shadow: 
-    0 12px 40px rgba(156, 39, 176, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  border-color: rgba(156, 39, 176, 0.4);
-}
+    .logo-abaixo-img {
+      width: 180px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-/* Brilho animado no fundo */
-.logo-abaixo-foto::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(156, 39, 176, 0.15) 0%,
-    transparent 70%
-  );
-  animation: logoGlow 4s ease-in-out infinite;
-  pointer-events: none;
-}
+    .logo-abaixo-foto:hover .logo-abaixo-img {
+      transform: scale(1.05);
+      filter: drop-shadow(0 6px 20px rgba(156, 39, 176, 0.4));
+    }
 
-@keyframes logoGlow {
-  0%, 100% { transform: scale(1); opacity: 0.5; }
-  50% { transform: scale(1.1); opacity: 0.8; }
-}
+    /* Animação de entrada */
+    @keyframes logoFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
-/* Wrapper da imagem */
-.logo-wrapper {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-}
+    .logo-abaixo-foto {
+      animation: logoFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
 
-/* Imagem da logo */
-.logo-abaixo-img {
-  width: 160px;
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  transition: all 0.4s ease;
-}
+    /* Responsivo */
+    @media (max-width: 400px) {
+      .logo-abaixo-img {
+        width: 150px;
+      }
+    }
 
-/* Efeito hover na imagem */
-.logo-abaixo-foto:hover .logo-abaixo-img {
-  transform: scale(1.03);
-  filter: drop-shadow(0 6px 20px rgba(156, 39, 176, 0.4));
-}
-
-/* Animação de entrada */
-@keyframes logoFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.logo-abaixo-foto {
-  animation: logoFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Responsivo */
-@media (max-width: 400px) {
-  .logo-abaixo-foto {
-    padding: 20px 28px;
-    margin: 20px 0 15px;
-  }
-  
-  .logo-abaixo-img {
-    width: 140px;
-  }
-}
-
-@media (max-width: 350px) {
-  .logo-abaixo-foto {
-    padding: 18px 24px;
-  }
-  
-  .logo-abaixo-img {
-    width: 120px;
-  }
-  }
+    @media (max-width: 350px) {
+      .logo-abaixo-img {
+        width: 130px;
+      }
+    }
 
     .subtitle {
       font-family: 'Montserrat', sans-serif;
@@ -346,24 +302,57 @@
       margin-bottom: 15px;
     }
 
+    /* ÍCONES PADRONIZADOS */
     .card-icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--lilas), var(--lilas-suave));
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      color: var(--roxo-escuro);
       flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* ÍCONE ESPECIAL PARA COMO FUNCIONA */
-    .icon-process {
-      background: linear-gradient(135deg, var(--lilas-destaque), var(--lilas-medio)) !important;
-      color: var(--branco) !important;
-      font-size: 24px !important;
+    .card-icon:hover {
+      transform: scale(1.1);
+    }
+
+    /* Cores dos ícones por seção */
+    .icon-sobre {
+      background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+      color: var(--icon-sobre);
+    }
+
+    .icon-atendimentos {
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      color: var(--icon-atendimentos);
+    }
+
+    .icon-trabalho {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+      color: var(--icon-trabalho);
+    }
+
+    .icon-equipe {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: var(--icon-equipe);
+    }
+
+    .icon-localizacao {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      color: var(--icon-localizacao);
+    }
+
+    .icon-processo {
+      background: linear-gradient(135deg, #eceff1, #cfd8dc);
+      color: var(--icon-processo);
+    }
+
+    .icon-faq {
+      background: linear-gradient(135deg, #fff8e1, #ffecb3);
+      color: var(--icon-faq);
     }
 
     .card h3 {
@@ -421,7 +410,10 @@
     }
 
     .service-icon {
-      font-size: 20px;
+      font-size: 18px;
+      color: var(--lilas-destaque);
+      width: 24px;
+      text-align: center;
     }
 
     /* EQUIPE */
@@ -456,15 +448,21 @@
     }
 
     .team-icon {
-      width: 44px;
-      height: 44px;
-      background: var(--lilas-destaque);
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      color: var(--branco);
+      color: var(--icon-equipe);
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .team-icon:hover {
+      transform: scale(1.1);
     }
 
     .team-card h3 {
@@ -532,18 +530,18 @@
       padding: 15px;
       background: var(--creme);
       border-radius: 12px;
-      border-left: 4px solid var(--lilas-destaque);
+      border-left: 4px solid var(--icon-processo);
       transition: all 0.3s ease;
     }
 
     .process-step:hover {
-      background: linear-gradient(135deg, var(--lilas-suave), var(--creme));
+      background: linear-gradient(135deg, #eceff1, var(--creme));
     }
 
     .step-number {
       width: 32px;
       height: 32px;
-      background: linear-gradient(135deg, var(--lilas-destaque), #7b1fa2);
+      background: linear-gradient(135deg, var(--icon-processo), #455a64);
       color: var(--branco);
       border-radius: 50%;
       display: flex;
@@ -587,15 +585,21 @@
     }
 
     .location-icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, var(--lilas), var(--lilas-suave));
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      color: var(--roxo-escuro);
+      color: var(--icon-localizacao);
+      flex-shrink: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .location-icon:hover {
+      transform: scale(1.1);
     }
 
     .location-details {
@@ -603,17 +607,24 @@
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 15px;
-      border-left: 4px solid var(--lilas-destaque);
+      border-left: 4px solid var(--icon-localizacao);
     }
 
     .location-details p {
-      margin: 8px 0;
+      margin: 10px 0;
       color: var(--roxo-escuro);
       font-size: 14px;
       line-height: 1.6;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .location-details i {
+      color: var(--icon-localizacao);
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
     }
 
     .local-img {
@@ -656,7 +667,7 @@
     }
 
     .faq-toggle {
-      color: var(--lilas-destaque);
+      color: var(--icon-faq);
       font-size: 12px;
       transition: transform 0.3s ease;
     }
@@ -846,11 +857,8 @@
 
     /* RESPONSIVO */
     @media (max-width: 400px) {
-      .logo-abaixo-foto {
-        padding: 15px 25px;
-      }
       .logo-abaixo-img {
-        width: 130px;
+        width: 150px;
       }
       .whatsapp-big {
         font-size: 13px;
@@ -859,15 +867,19 @@
       .phone-number {
         font-size: 20px;
       }
+      .card-icon, .team-icon, .location-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <div class="container">
-
-    <!-- HEADER CORRIGIDO -->
+    
+    <!-- HEADER -->
     <div class="header-section">
       
       <!-- FOTO -->
@@ -876,14 +888,14 @@
         <img src="psicologa1.jpg" alt="Foto da Psicóloga Karine Coimbra" class="foto" />
       </div>
       
-      <!-- LOGO ABAIXO DA FOTO - COM FUNDO DO SITE -->
+      <!-- LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA -->
       <div class="logo-abaixo-foto">
         <div class="logo-wrapper">
           <img src="file_00000000ac3c71f5bbf460bb12cc9934-removebg-preview.png" alt="Karine Coimbra" class="logo-abaixo-img" />
         </div>
       </div>
       
-      <div class="subtitle">Psicóloga Infantil</div>
+      <div class="subtitle"></div>
       <div class="credentials">
         <span class="badge">CRP-10/10844</span>
         <span class="badge">Especialista ABA</span>
@@ -901,16 +913,15 @@
       </a>
     </div>
 
-    <!-- RESTO DO CONTEÚDO PERMANECE IGUAL... -->
-    <!-- (mantive o mesmo conteúdo anterior para não alongar) -->
-
     <!-- CONTEÚDO -->
     <div class="content-wrapper">
 
       <!-- SOBRE MIM -->
       <div class="card">
         <div class="card-header">
-          <div class="card-icon">🧠</div>
+          <div class="card-icon icon-sobre">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
           <h3>Sobre Mim</h3>
         </div>
         <p>
@@ -933,7 +944,9 @@
       <!-- ATENDIMENTOS -->
       <div class="card">
         <div class="card-header">
-          <div class="card-icon">🎯</div>
+          <div class="card-icon icon-atendimentos">
+            <i class="fa-solid fa-stethoscope"></i>
+          </div>
           <h3>Atendimentos</h3>
         </div>
         <p style="margin-bottom: 15px;">
@@ -941,31 +954,31 @@
         </p>
         <div class="services-list">
           <div class="service-item">
-            <span class="service-icon">🧩</span>
+            <span class="service-icon"><i class="fa-solid fa-puzzle-piece"></i></span>
             <span>Autismo (TEA)</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">⚡</span>
+            <span class="service-icon"><i class="fa-solid fa-bolt"></i></span>
             <span>TDAH</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">🌪</span>
+            <span class="service-icon"><i class="fa-solid fa-wind"></i></span>
             <span>Ansiedade infantil</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">📚</span>
+            <span class="service-icon"><i class="fa-solid fa-book-open"></i></span>
             <span>Dificuldades escolares e comportamentais</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">🧠</span>
+            <span class="service-icon"><i class="fa-solid fa-brain"></i></span>
             <span>Altas habilidades / Superdotação</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">💬</span>
+            <span class="service-icon"><i class="fa-solid fa-comments"></i></span>
             <span>Desenvolvimento emocional e social</span>
           </div>
           <div class="service-item">
-            <span class="service-icon">👨‍👩‍👧</span>
+            <span class="service-icon"><i class="fa-solid fa-people-roof"></i></span>
             <span>Orientação parental</span>
           </div>
         </div>
@@ -974,7 +987,9 @@
       <!-- COMO EU TRABALHO -->
       <div class="card">
         <div class="card-header">
-          <div class="card-icon">💚</div>
+          <div class="card-icon icon-trabalho">
+            <i class="fa-solid fa-heart-pulse"></i>
+          </div>
           <h3>Como eu trabalho</h3>
         </div>
         <p>
@@ -990,7 +1005,9 @@
       <!-- EQUIPE -->
       <div class="team-card">
         <div class="team-header">
-          <div class="team-icon">🤝</div>
+          <div class="team-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
           <h3>Equipe</h3>
         </div>
         <p style="margin-bottom: 15px; color: rgba(255,255,255,0.8); font-size: 14px;">
@@ -1008,7 +1025,9 @@
       <!-- NOSSO ESPAÇO -->
       <div class="location-card">
         <div class="location-header">
-          <div class="location-icon">🏡</div>
+          <div class="location-icon">
+            <i class="fa-solid fa-house-medical"></i>
+          </div>
           <h3 style="font-family: 'Playfair Display', serif; font-weight: 700; color: var(--roxo-escuro); margin: 0; text-transform: uppercase; letter-spacing: 1px;">
             Nosso Espaço
           </h3>
@@ -1018,9 +1037,9 @@
           <span class="lilas-text">lúdico, acolhedor e cuidadosamente preparado</span> para o desenvolvimento infantil.
         </p>
         <div class="location-details">
-          <p>📍 Tv. Silvino Pinto, 490 – Sala 207</p>
-          <p>🏢 Santa Clara – Santarém/PA</p>
-          <p>🆔 CEP: 68005-310</p>
+          <p><i class="fa-solid fa-location-dot"></i> Tv. Silvino Pinto, 490 – Sala 207</p>
+          <p><i class="fa-solid fa-building"></i> Santa Clara – Santarém/PA</p>
+          <p><i class="fa-solid fa-map-pin"></i> CEP: 68005-310</p>
         </div>
         <img src="espaço.jpg" class="local-img" alt="Ambiente da Clínica Sanvitta" />
       </div>
@@ -1028,7 +1047,9 @@
       <!-- COMO FUNCIONA -->
       <div class="process-card">
         <div class="card-header">
-          <div class="card-icon icon-process">📋</div>
+          <div class="card-icon icon-processo">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
           <h3>Como funciona</h3>
         </div>
         <div class="process-steps">
@@ -1059,14 +1080,16 @@
       <!-- FAQ -->
       <div class="faq-container">
         <div class="card-header" style="margin-bottom: 5px;">
-          <div class="card-icon">❓</div>
+          <div class="card-icon icon-faq">
+            <i class="fa-solid fa-circle-question"></i>
+          </div>
           <h3>Dúvidas Frequentes</h3>
         </div>
         
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
             <span>A partir de qual idade atende?</span>
-            <span class="faq-toggle">▼</span>
+            <span class="faq-toggle"><i class="fa-solid fa-chevron-down"></i></span>
           </div>
           <div class="faq-answer">
             A partir de <strong>2 anos</strong>, com intervenções adaptadas para cada fase do desenvolvimento.
@@ -1076,7 +1099,7 @@
         <div class="faq-item">
           <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
             <span>Tem atendimento online?</span>
-            <span class="faq-toggle">▼</span>
+            <span class="faq-toggle"><i class="fa-solid fa-chevron-down"></i></span>
           </div>
           <div class="faq-answer">
             <strong>Sim</strong>, oferecemos atendimento online para <strong>orientação parental</strong>.
@@ -1119,6 +1142,6 @@
     </footer>
 
   </div>
-
 </body>
 </html>
+
