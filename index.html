@@ -115,29 +115,30 @@
 
     /* LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA */
     .logo-abaixo-foto {
-      margin: 15px 0 10px;
-      padding: 0;
-      background: transparent;
-      border: none;
-      box-shadow: none;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  margin: 5px 0; /* diminui bastante o espaço */
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .logo-wrapper {
-      position: relative;
-      display: inline-block;
-    }
+.logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-    .logo-abaixo-img {
-      width: 200px;
-      height: 180;
-      display: block;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+.logo-abaixo-img {
+  width: 200px;
+  height: auto; /* CORRIGI aqui (faltava unidade) */
+  display: block;
+  margin: 0; /* garante sem espaço extra */
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
     .logo-abaixo-foto:hover .logo-abaixo-img {
       transform: scale(1.05);
