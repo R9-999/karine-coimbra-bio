@@ -44,7 +44,7 @@
       --icon-localizacao: #ff9800;
       --icon-processo: #607d8b;
       --icon-faq: #ffc107;
-    } 
+    }
 
     * {
       margin: 0;
@@ -68,21 +68,20 @@
 
     /* HEADER */
     .header-section {
-  text-align: center;
-  padding: 25px 20px 10px; /* DIMINUI MUITO O ESPAÇO */
-  position: relative;
-  background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px; /* controla o espaço entre foto, logo e infos */
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+      background: linear-gradient(180deg, var(--roxo-escuro) 0%, var(--roxo-medio) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    /* FOTO */
+    /* FOTO - AJUSTADO: margem inferior reduzida */
     .foto-container {
       position: relative;
       display: inline-block;
-      margin-bottom: 0;
+      margin-bottom: 10px; /* REDUZIDO de 25px para 10px */
     }
 
     .foto {
@@ -114,32 +113,31 @@
       50% { transform: scale(1.03); opacity: 0.4; }
     }
 
-    /* LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA */
+    /* LOGO ABAIXO DA FOTO - SEM FUNDO/BORDA - AJUSTADO */
     .logo-abaixo-foto {
-  margin: 0; /* diminui bastante o espaço */
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+      margin: 5px 0 5px; /* REDUZIDO: topo 5px, embaixo 5px */
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.logo-wrapper {
-  position: relative;
-  display: inline-block;
-}
+    .logo-wrapper {
+      position: relative;
+      display: inline-block;
+    }
 
-.logo-abaixo-img {
-  width: 200px;
-  height: auto; /* CORRIGI aqui (faltava unidade) */
-  display: block;
-  margin: 0; /* garante sem espaço extra */
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
+    .logo-abaixo-img {
+      width: 160px; /* REDUZIDO ligeiramente de 180px para 160px */
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
     .logo-abaixo-foto:hover .logo-abaixo-img {
       transform: scale(1.05);
@@ -165,24 +163,14 @@
     /* Responsivo */
     @media (max-width: 400px) {
       .logo-abaixo-img {
-        width: 150px;
+        width: 140px;
       }
     }
 
     @media (max-width: 350px) {
       .logo-abaixo-img {
-        width: 130px;
+        width: 120px;
       }
-    }
-
-    .subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      color: var(--lilas-suave);
-      font-weight: 500;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 10px;
     }
 
     .credentials {
@@ -190,7 +178,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      margin-top: 15px;
+      margin-top: 12px; /* REDUZIDO ligeiramente de 15px para 12px */
     }
 
     .badge {
@@ -860,7 +848,7 @@
     /* RESPONSIVO */
     @media (max-width: 400px) {
       .logo-abaixo-img {
-        width: 150px;
+        width: 140px;
       }
       .whatsapp-big {
         font-size: 13px;
@@ -896,8 +884,7 @@
           <img src="file_00000000ac3c71f5bbf460bb12cc9934-removebg-preview.png" alt="Karine Coimbra" class="logo-abaixo-img" />
         </div>
       </div>
-      
-      <div class="subtitle"></div>
+
       <div class="credentials">
         <span class="badge">CRP-10/10844</span>
         <span class="badge">Especialista ABA</span>
@@ -1146,4 +1133,3 @@
   </div>
 </body>
 </html>
-
